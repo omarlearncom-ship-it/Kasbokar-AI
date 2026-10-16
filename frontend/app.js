@@ -1,5 +1,5 @@
 // After Render creates the API service, put its URL here if the site and API are separate.
-const API_BASE_URL = "";
+const API_BASE_URL = "https://kasbokar-ai.onrender.com";
 const $ = s => document.querySelector(s);
 let selectedBusiness = "", installPrompt;
 function toast(text){const t=$("#toast");t.textContent=text;t.hidden=false;setTimeout(()=>t.hidden=true,4500)}
