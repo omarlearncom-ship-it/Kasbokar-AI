@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: karbar-ai-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: CORS_ORIGINS
+        value: "*"
+  - type: web
+    name: karbar-ai-site
+    runtime: static
+    buildCommand: echo "Static site ready"
+    staticPublishPath: ./frontend
