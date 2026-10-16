@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#4f46e5"><meta name="description" content="کاربار AI، دستیار هوشمند کسب‌وکار">
+<title>کاربار AI | دستیار کسب‌وکار</title><link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/assets/icon-192.png"><link rel="stylesheet" href="/style.css">
+</head><body>
+<header class="top"><a class="brand" href="#home"><span>ک</span> کاربار <b>AI</b></a>
+<nav><a href="#business">کسب‌وکارها</a><a href="#chat">گفت‌وگو</a><a href="#tools">ابزارها</a></nav>
+<button id="installApp" hidden>⬇ نصب اپلیکیشن</button></header>
+<main>
+<section class="setup"><small>شروع کار</small><h2>کشور و زبانت را انتخاب کن</h2><p>این انتخاب برای شخصی‌سازی پاسخ‌هاست؛ بررسی IP تقریبی است و تشخیص VPN صددرصد ممکن نیست.</p>
+<div class="fields"><label>کشور<select id="country"><option value="Afghanistan">افغانستان</option><option value="Türkiye">ترکیه</option></select></label>
+<label>زبان<select id="language"><option value="fa">فارسی</option><option value="prs">دری</option><option value="tr">ترکی</option><option value="en">English</option></select></label>
+<button id="saveSetup" class="primary">ذخیره و ادامه</button></div><small id="setupNotice">ورود امن و ساخت حساب در مرحلهٔ بعد اضافه می‌شود.</small></section>
+<section id="home" class="hero"><div><small>دستیار هوشمند کسب‌وکار</small><h1>کارهایت را<br>هوشمندتر پیش ببر.</h1><p>برای نوشتن، بازاریابی، ایده‌پردازی و کارهای روزانهٔ کسب‌وکارت کمک بگیر.</p><a class="primary link" href="#chat">شروع گفت‌وگو</a> <a class="secondary link" href="#business">انتخاب کسب‌وکار</a></div><div class="art"><div class="orb">ک<small>AI</small></div><span>✦ ایده‌پردازی</span><span>↗ رشد کسب‌وکار</span></div></section>
+<section id="business" class="section"><small>دستیار تخصصی</small><h2>چه کاری انجام می‌دهی؟</h2><p>یک حوزه را انتخاب کن تا پاسخ‌ها متناسب‌تر شوند.</p><div class="grid">
+<button class="biz" data-business="فروشگاه و تجارت">🛍️ <b>فروشگاه و تجارت</b><small>فروش و مشتری</small></button>
+<button class="biz" data-business="رستوران و غذا">🍽️ <b>رستوران و غذا</b><small>منو و تبلیغات</small></button>
+<button class="biz" data-business="کشاورزی و دامداری">🌱 <b>کشاورزی و دامداری</b><small>برنامه‌ریزی و فروش</small></button>
+<button class="biz" data-business="فریلنسری و کار آنلاین">💻 <b>کار آنلاین</b><small>مهارت و پروژه</small></button>
+<button class="biz" data-business="خدمات و بازاریابی">📣 <b>خدمات و بازاریابی</b><small>محتوا و مشتری</small></button>
+<button class="biz" data-business="کسب‌وکار عمومی">💼 <b>کسب‌وکار دیگر</b><small>سؤال‌های تجاری</small></button></div></section>
+<section id="chat" class="section"><small>دستیار همیشه در دسترس</small><h2>گفت‌وگوی کاربار AI</h2><div class="chat"><div id="messages" aria-live="polite"><article class="msg"><b>کاربار AI</b><p>سلام! دربارهٔ کسب‌وکارت چه کمکی می‌خواهی؟</p></article></div><div class="context" id="businessContext">حالت عمومی</div>
+<form id="chatForm"><textarea id="messageInput" maxlength="12000" rows="2" placeholder="سؤالت را بنویس..." required></textarea><button id="voiceButton" type="button" title="ورودی صوتی">🎙️</button><button class="primary" id="sendButton" type="submit">ارسال</button></form><small id="chatNotice">کلید AI باید فقط در تنظیمات محرمانهٔ سرور ثبت شود.</small></div></section>
+<section id="tools" class="section"><small>به‌تدریج فعال می‌شوند</small><h2>ابزارهای هوش مصنوعی</h2><div class="grid tools">
+<article>🖼️ <h3>تولید تصویر</h3><p>هدف: ۲۰ تصویر در ۲۴ ساعت</p><button class="outline tool-info" data-tool="تولید تصویر">جزئیات</button></article>
+<article>🎵 <h3>تولید موسیقی</h3><p>وابسته به سرویس تولیدکننده</p><button class="outline tool-info" data-tool="تولید موسیقی">جزئیات</button></article>
+<article>🎬 <h3>تولید ویدئو</h3><p>هدف: یک ویدئو در ۲۴ ساعت</p><button class="outline tool-info" data-tool="تولید ویدئو">جزئیات</button></article>
+<article>🌐 <h3>ساخت وب‌سایت</h3><p>هدف: یک پروژهٔ جدید در ۲۴ ساعت</p><button class="outline tool-info" data-tool="ساخت وب‌سایت">جزئیات</button></article></div>
+<p class="notice">تولید رایگان ویدئوی ۳۰ دقیقه‌ای یا میزبانی رایگان همیشگی تضمین‌پذیر نیست؛ باید سرویس و هزینهٔ واقعی بررسی شود.</p></section>
+<section class="section social"><small>حضور آنلاین</small><h2>شبکه‌های اجتماعی</h2><p>برای برنامهٔ محتوا و رشد واقعی Facebook، Instagram، TikTok و YouTube کمک بگیر. اتصال حساب‌ها فقط با روش رسمی انجام می‌شود؛ رمز حساب را وارد نکن.</p><button id="socialHelp" class="secondary">برنامهٔ رشد صفحه</button></section>
+</main><footer><a class="brand" href="#home">ک کاربار <b>AI</b></a><span>نسخهٔ اولیه · افغانستان و ترکیه</span></footer>
+<div id="toast" hidden></div><script src="/app.js" defer></script></body></html>

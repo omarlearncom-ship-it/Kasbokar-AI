@@ -1,0 +1,17 @@
+// After Render creates the API service, put its URL here if the site and API are separate.
+const API_BASE_URL = "";
+const $ = s => document.querySelector(s);
+let selectedBusiness = "", installPrompt;
+function toast(text){const t=$("#toast");t.textContent=text;t.hidden=false;setTimeout(()=>t.hidden=true,4500)}
+try{const p=JSON.parse(localStorage.getItem("karbarPrefs")||"{}");if(p.country)$("#country").value=p.country;if(p.language)$("#language").value=p.language}catch(e){}
+$("#saveSetup").onclick=()=>{localStorage.setItem("karbarPrefs",JSON.stringify({country:$("#country").value,language:$("#language").value}));$("#setupNotice").textContent="تنظیمات در همین دستگاه ذخیره شد؛ این کار کشور واقعی را تأیید نمی‌کند.";toast("تنظیمات ذخیره شد.");};
+document.querySelectorAll(".biz").forEach(b=>b.onclick=()=>{document.querySelectorAll(".biz").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selectedBusiness=b.dataset.business;$("#businessContext").textContent="حوزه: "+selectedBusiness;$("#messageInput").placeholder="سؤالت را دربارهٔ "+selectedBusiness+" بنویس";location.hash="chat";});
+function addMsg(role,text){const a=document.createElement("article");a.className="msg";const b=document.createElement("b");b.textContent=role==="user"?"شما":"کاربار AI";const p=document.createElement("p");p.textContent=text;a.append(b,p);$("#messages").append(a);$("#messages").scrollTop=$("#messages").scrollHeight;}
+async function sendMessage(text){if(!text.trim())return;addMsg("user",text.trim());$("#messageInput").value="";$("#sendButton").disabled=true;try{const r=await fetch(API_BASE_URL.replace(/\/$/,"")+"/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:text.trim(),country:$("#country").value,language:$("#language").value,business_type:selectedBusiness||null})});const d=await r.json();if(!r.ok)throw Error(d.detail||"پاسخ دریافت نشد");addMsg("assistant",d.reply||"پاسخی دریافت نشد");}catch(e){addMsg("assistant","به سرور وصل نشدم. اگر فرانت‌اند و API جدا هستند، API_BASE_URL را در app.js به آدرس API در Render تنظیم کن. "+e.message);}finally{$("#sendButton").disabled=false;}}
+$("#chatForm").onsubmit=e=>{e.preventDefault();sendMessage($("#messageInput").value);};
+$("#voiceButton").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast("تشخیص صدا در این مرورگر پشتیبانی نمی‌شود؛ از میکروفون صفحه‌کلید گوشی استفاده کن.");return;}const r=new SR();r.lang=({"fa":"fa-IR","prs":"fa-AF","tr":"tr-TR","en":"en-US"})[$("#language").value]||"fa-IR";r.onresult=e=>$("#messageInput").value=e.results[0][0].transcript;r.onerror=()=>toast("اجازهٔ میکروفون یا اتصال را بررسی کن.");r.start();};
+document.querySelectorAll(".tool-info").forEach(b=>b.onclick=()=>toast(b.dataset.tool+" در نسخهٔ اولیه نمایشی است؛ برای فعال‌سازی به سرویس واقعی و سهمیهٔ سمت سرور نیاز دارد."));
+$("#socialHelp").onclick=()=>{location.hash="chat";$("#messageInput").value="برای رشد واقعی صفحهٔ کسب‌وکارم در شبکه‌های اجتماعی یک برنامهٔ عملی پیشنهاد بده."};
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installPrompt=e;$("#installApp").hidden=false;});
+$("#installApp").onclick=async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;}else toast("در Chrome منوی سه‌نقطه را باز کن و Install app یا Add to Home screen را بزن.");};
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js").catch(()=>{}));
