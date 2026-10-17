@@ -1,35 +1,199 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#4f46e5"><meta name="description" content="کاربار AI، دستیار هوشمند کسب‌وکار">
-<title>کاربار AI | دستیار کسب‌وکار</title><link rel="manifest" href="/manifest.json">
-<link rel="icon" href="/assets/icon-192.png"><link rel="stylesheet" href="/style.css">
-</head><body>
-<header class="top"><a class="brand" href="#home"><span>ک</span> کاربار <b>AI</b></a>
-<nav><a href="#business">کسب‌وکارها</a><a href="#chat">گفت‌وگو</a><a href="#tools">ابزارها</a></nav>
-<button id="installApp" hidden>⬇ نصب اپلیکیشن</button></header>
-<main>
-<section class="setup"><small>شروع کار</small><h2>کشور و زبانت را انتخاب کن</h2><p>این انتخاب برای شخصی‌سازی پاسخ‌هاست؛ بررسی IP تقریبی است و تشخیص VPN صددرصد ممکن نیست.</p>
-<div class="fields"><label>کشور<select id="country"><option value="Afghanistan">افغانستان</option><option value="Türkiye">ترکیه</option></select></label>
-<label>زبان<select id="language"><option value="fa">فارسی</option><option value="prs">دری</option><option value="tr">ترکی</option><option value="en">English</option></select></label>
-<button id="saveSetup" class="primary">ذخیره و ادامه</button></div><small id="setupNotice">ورود امن و ساخت حساب در مرحلهٔ بعد اضافه می‌شود.</small></section>
-<section id="home" class="hero"><div><small>دستیار هوشمند کسب‌وکار</small><h1>کارهایت را<br>هوشمندتر پیش ببر.</h1><p>برای نوشتن، بازاریابی، ایده‌پردازی و کارهای روزانهٔ کسب‌وکارت کمک بگیر.</p><a class="primary link" href="#chat">شروع گفت‌وگو</a> <a class="secondary link" href="#business">انتخاب کسب‌وکار</a></div><div class="art"><div class="orb">ک<small>AI</small></div><span>✦ ایده‌پردازی</span><span>↗ رشد کسب‌وکار</span></div></section>
-<section id="business" class="section"><small>دستیار تخصصی</small><h2>چه کاری انجام می‌دهی؟</h2><p>یک حوزه را انتخاب کن تا پاسخ‌ها متناسب‌تر شوند.</p><div class="grid">
-<button class="biz" data-business="فروشگاه و تجارت">🛍️ <b>فروشگاه و تجارت</b><small>فروش و مشتری</small></button>
-<button class="biz" data-business="رستوران و غذا">🍽️ <b>رستوران و غذا</b><small>منو و تبلیغات</small></button>
-<button class="biz" data-business="کشاورزی و دامداری">🌱 <b>کشاورزی و دامداری</b><small>برنامه‌ریزی و فروش</small></button>
-<button class="biz" data-business="فریلنسری و کار آنلاین">💻 <b>کار آنلاین</b><small>مهارت و پروژه</small></button>
-<button class="biz" data-business="خدمات و بازاریابی">📣 <b>خدمات و بازاریابی</b><small>محتوا و مشتری</small></button>
-<button class="biz" data-business="کسب‌وکار عمومی">💼 <b>کسب‌وکار دیگر</b><small>سؤال‌های تجاری</small></button></div></section>
-<section id="chat" class="section"><small>دستیار همیشه در دسترس</small><h2>گفت‌وگوی کاربار AI</h2><div class="chat"><div id="messages" aria-live="polite"><article class="msg"><b>کاربار AI</b><p>سلام! دربارهٔ کسب‌وکارت چه کمکی می‌خواهی؟</p></article></div><div class="context" id="businessContext">حالت عمومی</div>
-<form id="chatForm"><textarea id="messageInput" maxlength="12000" rows="2" placeholder="سؤالت را بنویس..." required></textarea><button id="voiceButton" type="button" title="ورودی صوتی">🎙️</button><button class="primary" id="sendButton" type="submit">ارسال</button></form><small id="chatNotice">کلید AI باید فقط در تنظیمات محرمانهٔ سرور ثبت شود.</small></div></section>
-<section id="tools" class="section"><small>به‌تدریج فعال می‌شوند</small><h2>ابزارهای هوش مصنوعی</h2><div class="grid tools">
-<article>🖼️ <h3>تولید تصویر</h3><p>هدف: ۲۰ تصویر در ۲۴ ساعت</p><button class="outline tool-info" data-tool="تولید تصویر">جزئیات</button></article>
-<article>🎵 <h3>تولید موسیقی</h3><p>وابسته به سرویس تولیدکننده</p><button class="outline tool-info" data-tool="تولید موسیقی">جزئیات</button></article>
-<article>🎬 <h3>تولید ویدئو</h3><p>هدف: یک ویدئو در ۲۴ ساعت</p><button class="outline tool-info" data-tool="تولید ویدئو">جزئیات</button></article>
-<article>🌐 <h3>ساخت وب‌سایت</h3><p>هدف: یک پروژهٔ جدید در ۲۴ ساعت</p><button class="outline tool-info" data-tool="ساخت وب‌سایت">جزئیات</button></article></div>
-<p class="notice">تولید رایگان ویدئوی ۳۰ دقیقه‌ای یا میزبانی رایگان همیشگی تضمین‌پذیر نیست؛ باید سرویس و هزینهٔ واقعی بررسی شود.</p></section>
-<section class="section social"><small>حضور آنلاین</small><h2>شبکه‌های اجتماعی</h2><p>برای برنامهٔ محتوا و رشد واقعی Facebook، Instagram، TikTok و YouTube کمک بگیر. اتصال حساب‌ها فقط با روش رسمی انجام می‌شود؛ رمز حساب را وارد نکن.</p><button id="socialHelp" class="secondary">برنامهٔ رشد صفحه</button></section>
-</main><footer><a class="brand" href="#home">ک کاربار <b>AI</b></a><span>نسخهٔ اولیه · افغانستان و ترکیه</span></footer>
-<div id="toast" hidden></div><script src="/app.js" defer></script></body></html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6257e8">
+  <meta name="description" content="کاربار AI؛ دستیار هوش مصنوعی برای رشد کسب‌وکار">
+  <title>کاربار AI | دستیار هوشمند کسب‌وکار</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="کاربار AI">
+      <span class="brand-logo">ک</span>
+      <span>
+        <strong>کاربار AI</strong>
+        <small>دستیار هوشمند کسب‌وکار</small>
+      </span>
+    </a>
+    <a class="header-link" href="#chat">شروع گفت‌وگو</a>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="status-dot"></span> دستیار هوش مصنوعی شما</span>
+        <h1>کسب‌وکارت را <span>هوشمندتر</span> بساز</h1>
+        <p>برای ایده‌پردازی، بازاریابی، نوشتن محتوا و رشد کسب‌وکارت کمک بگیر.</p>
+        <a class="primary-button" href="#chat">گفت‌وگو را شروع کن <span>←</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-center">AI</div>
+        <div class="art-card art-card-one">✦ ایده‌های تازه</div>
+        <div class="art-card art-card-two">↗ رشد کسب‌وکار</div>
+        <div class="art-card art-card-three">✓ برنامه‌ریزی هوشمند</div>
+      </div>
+    </section>
+
+    <section class="features" aria-label="قابلیت‌ها">
+      <article class="feature-card">
+        <span class="feature-icon">✦</span>
+        <h3>ایده‌پردازی</h3>
+        <p>ایده‌های تازه برای محصولات و خدماتت پیدا کن.</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-icon">↗</span>
+        <h3>بازاریابی</h3>
+        <p>برای جذب مشتری و معرفی کسب‌وکارت برنامه بساز.</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-icon">✎</span>
+        <h3>تولید محتوا</h3>
+        <p>برای شبکه‌های اجتماعی و تبلیغات متن آماده کن.</p>
+      </article>
+    </section>
+
+    <section id="setup" class="setup-section">
+      <div class="section-heading">
+        <span class="eyebrow">شخصی‌سازی</span>
+        <h2>دستیار را با کسب‌وکارت آشنا کن</h2>
+        <p>این اطلاعات کمک می‌کند پاسخ‌ها مناسب‌تر باشند.</p>
+      </div>
+      <div class="setup-card">
+        <label for="businessName">نام کسب‌وکار <span class="optional">(اختیاری)</span></label>
+        <input id="businessName" type="text" placeholder="مثلاً فروشگاه آنلاین من">
+
+        <label for="country">کشور</label>
+        <select id="country">
+          <option value="افغانستان">افغانستان</option>
+          <option value="ایران">ایران</option>
+          <option value="پاکستان">پاکستان</option>
+          <option value="تاجیکستان">تاجیکستان</option>
+          <option value="سایر کشورها">سایر کشورها</option>
+        </select>
+
+        <label for="language">زبان پاسخ</label>
+        <select id="language">
+          <option value="فارسی">فارسی</option>
+          <option value="دری">دری</option>
+          <option value="English">English</option>
+          <option value="پشتو">پشتو</option>
+        </select>
+
+        <button id="saveSetup" class="primary-button setup-save" type="button">ذخیره تنظیمات</button>
+      </div>
+    </section>
+
+    <section id="chat" class="section chat-section">
+      <div class="section-heading">
+        <span class="eyebrow">همراه هوشمند تو</span>
+        <h2>با کاربار AI گفت‌وگو کن</h2>
+        <p>سؤالت را بنویس؛ هر زمان خواستی می‌توانی به گفت‌وگوهای قبلی برگردی.</p>
+      </div>
+
+      <div class="chat-layout">
+        <aside class="chat-sidebar">
+          <button id="newChatButton" class="primary-button new-chat" type="button">
+            <span>＋</span> گفت‌وگوی جدید
+          </button>
+          <h3>تاریخچهٔ گفت‌وگوها</h3>
+          <div id="chatList" class="chat-list">
+            <p class="empty-chats">گفت‌وگوها اینجا نمایش داده می‌شوند.</p>
+          </div>
+          <small>گفت‌وگوها در همین مرورگر ذخیره می‌شوند.</small>
+        </aside>
+
+        <div class="chat-main">
+          <div class="chat">
+            <div class="chat-top">
+              <div class="assistant-avatar">AI</div>
+              <div>
+                <strong>کاربار AI</strong>
+                <span class="online-label"><span class="status-dot"></span> دستیار هوشمند</span>
+              </div>
+            </div>
+
+            <div id="messages" class="messages" aria-live="polite">
+              <div class="message assistant-message">
+                <div class="message-avatar">AI</div>
+                <div class="message-bubble">سلام! دربارهٔ کسب‌وکارت چه کمکی می‌خواهی؟</div>
+              </div>
+            </div>
+
+            <div id="businessContext" class="business-context"></div>
+
+            <form id="chatForm" class="chat-form">
+              <textarea
+                id="messageInput"
+                name="message"
+                rows="1"
+                maxlength="10000"
+                placeholder="پیامت را اینجا بنویس..."
+                aria-label="پیام شما"
+                required
+              ></textarea>
+              <button id="sendButton" class="send-button" type="submit" aria-label="ارسال پیام">
+                <span>↑</span>
+              </button>
+            </form>
+            <p class="chat-disclaimer">پاسخ‌های هوش مصنوعی را در موارد مهم بررسی کن.</p>
+          </div>
+
+          <div class="business-picker">
+            <h3>نوع کسب‌وکار</h3>
+            <p>برای پیشنهادهای مرتبط‌تر، یک گزینه را انتخاب کن.</p>
+            <div class="business-options">
+              <button class="biz" type="button" data-business="فروشگاه آنلاین">🛍️ فروشگاه آنلاین</button>
+              <button class="biz" type="button" data-business="آموزش">📚 آموزش</button>
+              <button class="biz" type="button" data-business="خدمات">🧰 خدمات</button>
+              <button class="biz" type="button" data-business="تولید محتوا">🎨 تولید محتوا</button>
+              <button class="biz" type="button" data-business="تجارت و بازرگانی">📦 تجارت</button>
+              <button class="biz" type="button" data-business="کسب‌وکار دیگر">💡 سایر</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools-section">
+      <div class="section-heading">
+        <span class="eyebrow">ابزارها</span>
+        <h2>در چه زمینه‌ای کمک می‌خواهی؟</h2>
+      </div>
+      <div class="tools-grid">
+        <button class="tool-info" type="button" data-prompt="برای کسب‌وکارم یک برنامه بازاریابی ساده و کاربردی تهیه کن.">
+          <span>📈</span><strong>بازاریابی</strong><small>جذب مشتری بیشتر</small>
+        </button>
+        <button class="tool-info" type="button" data-prompt="برای کسب‌وکارم چند ایده محتوایی خلاقانه پیشنهاد بده.">
+          <span>✍️</span><strong>تولید محتوا</strong><small>ایده برای پست و تبلیغ</small>
+        </button>
+        <button class="tool-info" type="button" data-prompt="کمک کن یک برنامه ساده برای افزایش فروش کسب‌وکارم بسازم.">
+          <span>💰</span><strong>افزایش فروش</strong><small>پیشنهادهای عملی</small>
+        </button>
+        <button class="tool-info" type="button" data-prompt="کمک کن یک ایده کسب‌وکار مناسب با بودجه کم پیدا کنم.">
+          <span>💡</span><strong>ایده کسب‌وکار</strong><small>شروع با امکانات کم</small>
+        </button>
+      </div>
+      <button id="socialHelp" class="secondary-button" type="button">راهنمای شبکه‌های اجتماعی</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="brand footer-brand">
+      <span class="brand-logo">ک</span>
+      <strong>کاربار AI</strong>
+    </div>
+    <p>ابزاری برای فکرکردن، برنامه‌ریزی و رشد کسب‌وکار.</p>
+    <button id="installApp" class="secondary-button" type="button">نصب برنامه</button>
+    <small>© کاربار AI</small>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+  </html>
